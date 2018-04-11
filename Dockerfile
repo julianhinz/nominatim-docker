@@ -115,6 +115,7 @@ ARG BUILD_THREADS=16
 ARG FILTER=false
 COPY scripts/filter.sh \
       /srv/nominatim/scripts/filter.sh
+RUN chmod +x /srv/nominatim/scripts/filter.sh
 RUN /srv/nominatim/scripts/filter.sh
 
 # Add postgresql users
