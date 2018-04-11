@@ -55,6 +55,8 @@ RUN apt-get install -y --no-install-recommends \
       libxml2-dev\
       openssl \
       osmosis \
+      osmconvert \
+      osmfilter \
       php \
       php-db \
       php-intl \
