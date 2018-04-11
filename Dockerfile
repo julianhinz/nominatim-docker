@@ -112,10 +112,10 @@ RUN curl -L ${PBF_URL} --create-dirs -o /srv/nominatim/src/data.osm.pbf
 # Filter administrative boundaries
 USER nominatim
 ARG BUILD_THREADS=16
-ARG IMPORT_ADMINISTRATIVE=false
-COPY scripts/filter_administrative.sh \
-      /srv/nominatim/scripts/filter_administrative.sh
-RUN /srv/nominatim/scripts/filter_administrative.sh
+ARG FILTER=false
+COPY scripts/filter.sh \
+      /srv/nominatim/scripts/filter.sh
+RUN /srv/nominatim/scripts/filter.sh
 
 # Add postgresql users
 USER root
