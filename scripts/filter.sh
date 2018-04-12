@@ -3,7 +3,6 @@
 if ${FILTER}; then
 
   echo "Filtering places."
-
   exec osmconvert /srv/nominatim/src/data.osm.pbf -o=/srv/nominatim/src/data.o5m
   echo "Filtering places: Converted pbf to o5m"
   exec rm /srv/nominatim/src/data.osm.pbf
@@ -15,4 +14,5 @@ if ${FILTER}; then
   exec rm /srv/nominatim/src/data.o5m
   echo "Filtering places: Deleted o5m"
   echo "Filtering places: Done"
+
 fi
