@@ -113,7 +113,7 @@ RUN curl -L ${PBF_URL} --create-dirs -o /srv/nominatim/src/data.osm.pbf
 # Filter administrative boundaries
 USER nominatim
 ARG BUILD_THREADS=16
-ARG FILTER=false
+ARG FILTER=true
 COPY scripts/filter.sh \
       /srv/nominatim/scripts/filter.sh
 RUN /srv/nominatim/scripts/filter.sh
