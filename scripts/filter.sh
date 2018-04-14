@@ -6,13 +6,15 @@ if ${FILTER}; then
   echo "Filtering places: Converted pbf to o5m"
   rm /srv/nominatim/src/data.osm.pbf
   echo "Filtering places: Deleted pbf"
-  osmfilter /srv/nominatim/src/data_old.o5m --keep="place=*" --drop-author -o=/srv/nominatim/src/data.o5m
+#  osmfilter /srv/nominatim/src/data_old.o5m --keep="place=*" --drop-author -o=/srv/nominatim/src/data.o5m
+  osmfilter /srv/nominatim/src/data_old.o5m --drop="building=yes" --drop-author -o=/srv/nominatim/src/data.o5m
   echo "Filtering places: Filtered o5m"
   rm /srv/nominatim/src/data_old.o5m
   echo "Filtering places: Deleted pbf"
   osmconvert /srv/nominatim/src/data.o5m -o=/srv/nominatim/src/data.osm.pbf
-  echo "Filtering places: Converted o5m back to pbf"
+  echo "Filtering places: Converted o5m back to pbf, file size:"
   rm /srv/nominatim/src/data.o5m
+  ls -lh /srv/nominatim/src/
   echo "Filtering places: Deleted o5m"
   echo "Filtering places: Done"
 fi
